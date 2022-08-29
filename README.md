@@ -49,6 +49,31 @@ you are in the repo top-level directory.
 pip install -e .
 ```
 
+## Testing your installation works
+
+Ensure the conda environment (`package-demo`) is activated and open the
+interactive Python interpreter:
+
+```
+(package-demo) python-package $ python
+Python 3.9.10 | packaged by conda-forge | (main, Feb  1 2022, 21:28:27)
+[Clang 11.1.0 ] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+Import the test method we defined and try it out!
+
+```
+>>> from python_package.test_module import test_add_one
+>>> test_add_one(2)
+3
+```
+
+Even though we opened the interactive interpreter from within the repo,
+we can import this method in the same way regardless of where the code
+is executed from!
+
 ## How packaging works
 
 :warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
@@ -74,31 +99,6 @@ When you run `pip install -e .`, the setuptools backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
 environemnt. It will create a new directory `src/python_project.egg-info/`
 that contains the binaries for your project and should be `.gitignore`'d.
-
-## Testing your installation works
-
-Ensure the conda environment (`package-demo`) is activate, and open the
-interactive Python interpreter:
-
-```
-(package-demo) python-package $ python
-Python 3.9.10 | packaged by conda-forge | (main, Feb  1 2022, 21:28:27)
-[Clang 11.1.0 ] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>> 
-```
-
-Import the test method we defined and try it out!
-
-```
->>> from python_package.test_module import test_add_one
->>> test_add_one(2)
-3
-```
-
-Even though we opened the interactive interpreter from within the repo,
-we can import this method in the same way regardless of where the code
-is executed from!
 
 ## Other data
 
