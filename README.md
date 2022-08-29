@@ -49,18 +49,18 @@ you are in the repo top-level directory.
 pip install -e .
 ```
 
-## Packaging
+## How packaging works
 
-Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
-`pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent change in
-summer 2022.
+:warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
+`pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent change as of
+summer 2022, so there is a lot of outdated information out there.
 
-There are many ways to package Python projects, but the simplest and oldest way
-is using `pip`/`setuptools`. At the time of writing, conda does not yet support
-installing in editable mode (but you can still install into a conda
-environment).
+There are many ways to package Python projects, such as using Flit or Hatch,
+but the simplest and oldest way is using pip + setuptools. At the time of
+writing, conda does not yet support installing in editable mode (but you can
+still install a repo into a conda environment using `pip`).
 
-`setuptools` requires:
+setuptools requires:
 - `pyproject.toml`: Recently adopted configration file standard (see 
 [PEP 621](https://peps.python.org/pep-0621/).)
 - `src/your_project_name/` directory containing all of your project source
@@ -70,7 +70,7 @@ That's it! You want the top-level of the repo to be clean, with only the
 necessary configuration files (for example, GitHub workflows, pre-commit hooks,
 etc).
 
-When you run `pip install -e .`, the `setuptools` backend will collect the
+When you run `pip install -e .`, the setuptools backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
 environemnt. It will create a new directory `src/python_project.egg-info/`
 that contains the binaries for your project and should be `.gitignore`'d.
