@@ -8,7 +8,7 @@ Motivation:
 
 ## Installation
 
-:rocket: _**TIP**: Use [`mamba`](https://github.com/mamba-org/mamba) instead
+:rocket: **TIP**: Use [`mamba`](https://github.com/mamba-org/mamba) instead
 of `conda` to significantly increase installation speed. If you don't already
 have it installed: `conda install mamba -n base -c conda-forge`
 
@@ -74,6 +74,27 @@ When you run `pip install -e .`, the `setuptools` backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
 environemnt. It will create a new directory `src/python_project.egg-info/`
 that contains the binaries for your project and should be `.gitignore`'d.
+
+## Testing your installation works
+
+Ensure the conda environment (`package-demo`) is activate, and open the
+interactivate Python interpreter:
+
+```
+(package-demo) python-package $ python
+Python 3.9.10 | packaged by conda-forge | (main, Feb  1 2022, 21:28:27)
+[Clang 11.1.0 ] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+Import the test method we defined and try it out!
+
+```
+>>> from python_package.test_module import test_add_one
+>>> test_add_one(2)
+3
+```
 
 ## Other data
 
