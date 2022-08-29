@@ -25,8 +25,8 @@ Initialize submodules:
 git submodule update --init --recursive
 ```
 
-Create a mamba (conda) environment from the environment file. The name and
-Python version are already set in the file.
+Create a conda environment from the env file. The env name and
+Python version are already defined in the file.
 
 ```
 mamba env create --file environment.yaml
@@ -40,10 +40,10 @@ you will be using the AudioLoader:
 mamba env update --file src/MLtools/AudioLoader/environment.yml
 ```
 
-Install this project as a package in editable mode (`-e`) the environment using
-pip. Editable mode means that any local changes take effect immediately. The
-trailing `.` will install the current directory, so make sure you are in the
-repo top-level directory.
+Install this repo as a package in editable mode (`-e`) into the conda 
+environment using pip. Editable mode means that any local changes take effect
+immediately. The trailing `.` will install the current directory, so make sure
+you are in the repo top-level directory.
 
 ```
 pip install -e .
