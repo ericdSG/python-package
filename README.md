@@ -57,18 +57,18 @@ summer 2022, so there is a lot of outdated information out there.
 
 There are many ways to package Python projects, such as using Flit or Hatch,
 but the simplest and oldest way is using pip + setuptools. At the time of
-writing, conda does not yet support installing in editable mode (but you can
-still install a repo into a conda environment using `pip`).
+writing, conda does not yet support installing in editable mode but you can
+still install a repo into a conda environment using pip.
 
-setuptools requires:
+Installing a package with setuptools requires:
 - `pyproject.toml`: Recently adopted configration file standard (see 
-[PEP 621](https://peps.python.org/pep-0621/).)
-- `src/your_project_name/` directory containing all of your project source
-code.
+[PEP 621](https://peps.python.org/pep-0621/))
+- `src/your_project_name/`: directory containing all of your project's source
+code
 
-That's it! You want the top-level of the repo to be clean, with only the
-necessary configuration files (for example, GitHub workflows, pre-commit hooks,
-etc).
+That's it! You want the top-level of the repo to be clean and free of clutter,
+with only the necessary configuration files (for example, GitHub workflows,
+pre-commit hooks, etc).
 
 When you run `pip install -e .`, the setuptools backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
