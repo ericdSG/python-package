@@ -78,7 +78,7 @@ that contains the binaries for your project and should be `.gitignore`'d.
 ## Testing your installation works
 
 Ensure the conda environment (`package-demo`) is activate, and open the
-interactivate Python interpreter:
+interactive Python interpreter:
 
 ```
 (package-demo) python-package $ python
@@ -95,6 +95,10 @@ Import the test method we defined and try it out!
 >>> test_add_one(2)
 3
 ```
+
+Even though we opened the interactive interpreter from within the repo,
+we can import this method in the same way regardless of where the code
+is executed from!
 
 ## Other data
 
