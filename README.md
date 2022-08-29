@@ -51,6 +51,10 @@ pip install -e .
 
 ## Packaging
 
+Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
+`pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent change in
+summer 2022.
+
 There are many ways to package Python projects, but the simplest and oldest way
 is using `pip`/`setuptools`. At the time of writing, conda does not yet support
 installing in editable mode (but you can still install into a conda
@@ -59,9 +63,6 @@ environment).
 `setuptools` requires:
 - `pyproject.toml`: Recently adopted configration file standard (see 
 [PEP 621](https://peps.python.org/pep-0621/).)
-- `setup.cfg`: Former configuration file standard that, at the time of writing,
-is still required to for editable mode install when using older versions of
-`pip`/`setuptools`. Just leave it empty.
 - `src/your_project_name/` directory containing all of your project source
 code.
 
@@ -71,7 +72,8 @@ etc).
 
 When you run `pip install -e .`, the `setuptools` backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
-environemnt.
+environemnt. It will create a new directory `src/python_project.egg-info/`
+that contains the binaries for your project and should be `.gitignore`'d.
 
 ## Other data
 
