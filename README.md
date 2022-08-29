@@ -8,6 +8,10 @@ Motivation:
 
 ## Installation
 
+:rocket: _**TIP**: Use [`mamba`](https://github.com/mamba-org/mamba) instead
+of `conda` to significantly increase installation speed. If you don't already
+have it installed: `conda install mamba -n base -c conda-forge`
+
 Clone the repo:
 
 ```
@@ -26,6 +30,7 @@ Python version are already set in the file.
 
 ```
 mamba env create --file environment.yaml
+mamba activate package-demo
 ```
 
 Install any other dependencies you might need. In this case, let's assume
