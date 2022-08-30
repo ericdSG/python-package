@@ -1,8 +1,9 @@
-# Python Project
+# Python Package :package:
 
 Basic directory structure required to package your Python project.
 
-Motivation:
+## Motivation
+
 - Standarize Python code
 - Flexible module imports
 
@@ -77,11 +78,18 @@ environemnt.
 
 This repo only contains the necessary directories to create a valid Python
 package from source code. You will certainly want to create other directories.
-In general, it is bad practice to commit data directly to git. It is better to
-use another service like DVC or git-lfs.
+There are a few considerations to keep in mind:
 
-One solution to make it easier to keep track of data is to have a single
-top-level `data/` directory that contains _only_ data (i.e. no data processing
-scripts). Don't forget to add `data/` to `.gitignore`!
+- Source code should always go in `src/`
+- In general, it is bad practice to commit data directly to git. It is better
+to use another service like DVC or git-lfs.
 
-The same principle holds for other kinds of content, such as experiment runs.
+## Recommendations
+
+- Have a _**concise**_ section in your README with copy/paste steps for:
+  1. Installation (submodule initialization, conda env, pip package install)
+  2. Basic usage (a minimal working example of how to get your code running)
+- Have a single top-level `data/` directory that contains only and all the data
+for your project (i.e. no processing scripts). Don't forget to add `data/` to
+`.gitignore`!
+- The same principle holds for other kinds of content, such as experiment runs.
