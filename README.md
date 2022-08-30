@@ -77,18 +77,15 @@ is executed from!
 
 ## How packaging works
 
-:warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
-`pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent change as of
-summer 2022, so there is a lot of outdated information out there.
-
-There are many ways to package Python projects, such as using Flit or Hatch,
-but the simplest and oldest way is using pip + setuptools. At the time of
-writing, conda does not yet support installing in editable mode but you can
-still install a repo into a conda environment using pip.
+There are many ways to package Python projects, such as Flit or Hatch, but the
+simplest and oldest way is using pip + setuptools. At the time of writing,
+conda does not yet support installing in editable mode but you can still
+install a repo into a conda environment using pip.
 
 Installing a package with setuptools requires:
 - `pyproject.toml`: Recently adopted configration file standard (see 
 [PEP 621](https://peps.python.org/pep-0621/))
+  - Must contain, at minimum: `build-backend`, `requires`, `name`, `version`
 - `src/your_project_name/`: directory containing all of your project's source
 code
 
@@ -100,6 +97,10 @@ When you run `pip install -e .`, the setuptools backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
 environemnt. It will create a new directory `src/python_project.egg-info/`
 that contains the binaries for your project and should be `.gitignore`'d.
+
+:warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
+`pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent change as of
+summer 2022, so there is a lot of outdated information out there.
 
 ## Other data
 
@@ -114,9 +115,10 @@ to use another service like DVC or git-lfs.
 ## Recommendations
 
 - Have a _**concise**_ section in your README with copy/paste steps for:
-  1. Installation (submodule initialization, conda env, pip package install)
-  2. Basic usage (a minimal working example of how to get your code running)
-- Have a single top-level `data/` directory that contains only and all the data
-for your project (i.e. no processing scripts). Don't forget to add `data/` to
-`.gitignore`!
-- The same principle holds for other kinds of content, such as experiment runs.
+  1. Installation - submodule initialization, conda environment setup, pip
+package install
+  2. Basic usage - a minimal working example of how to get your code running
+- Have a single top-level `data/` directory that contains only and all the
+input/output data for your project (i.e. no processing scripts). Don't forget
+to add `data/` to `.gitignore`!
+- The principle holds for other kinds of content, such as experiment runs.
