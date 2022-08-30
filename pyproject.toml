@@ -3,17 +3,5 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools>=61.0"]
 
 [project]
-authors = [
-    { name = "First Last" }
-]
-classifiers = [
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Operating System :: OS Independent",
-]
-requires-python = ">=3.7"
+name = "python_package"
 version = "0.0.1"

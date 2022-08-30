@@ -1,4 +1,4 @@
-Normally there is be a README here. This is just for descriptive purposes.
+:warning: Usually there is no README here. This is just for descriptive purposes.
 
 This is the root directory of your Python package. It contains the source code
 of your project in an appropriately-name directory. It doesn't have to be the
@@ -16,3 +16,7 @@ package so that you can import the same way:
 ```
 from MLtools.AudioLoader.src.core import AudioLoader
 ```
+
+Note that any source directory containing multiple subdirectories should
+contain the `__init__.py` folder, which is used by the interpreter to index
+other modules (files) in the package.
