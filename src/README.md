@@ -2,7 +2,7 @@
 
 This is the root directory of your Python package. It contains the source code
 of your project in an appropriately-name directory. It doesn't have to be the
-same name as the repo, but it should be relevant, concise, and _must not
+same name as the repo, but it should be relevant, succinct, and _must not
 contain hyphens_! The name of this directory is what will be used in module
 imports. In this case:
 
@@ -17,6 +17,9 @@ package so that you can import the same way:
 from MLtools.AudioLoader.src.core import AudioLoader
 ```
 
-Note that any source directory containing multiple subdirectories should
-contain the `__init__.py` folder, which is used by the interpreter to index
-other modules (files) in the package.
+Source directories containing subdirectories should have an `__init__.py` file,
+which is used by the Python interpreter to index other modules (files) in the
+package.
+
+You may have noticed that `MLtools` has `__init__.py` in the top-level. This is
+because it was intended to be an importable library in this way!
