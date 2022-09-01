@@ -102,7 +102,7 @@ project metadata from `pyproject.toml` and add the contents of `src/` to your
 environment. It will create a new directory `src/python_project.egg-info/`
 that contains metadata for your project and should be `.gitignore`'d.
 
-:rotating-light: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
+:rotating_light: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
 ensure that `pip>=21.3`. Failing that: `setuptools>=64.0`.
 
 ## Other recommendations
