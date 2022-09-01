@@ -77,15 +77,6 @@ re-open the interpreter, and import the function again to see your change!
 
 ## How packaging works
 
-:warning: Note that using `pyproject.toml` instead of `setup.py` and `setup.cfg`
-is a recent change as of summer 2022, so there is a lot of outdated information
-out there.
-
-There are many ways to package Python projects, such as Flit or Hatch, but the
-simplest and oldest way is using pip + setuptools. At the time of writing,
-conda does not yet support installing in editable mode but you can still
-install a repo into a conda environment using pip.
-
 Installing a package with setuptools requires:
 - `pyproject.toml`: Recently adopted configration file standard (see 
 [PEP 621](https://peps.python.org/pep-0621/))
@@ -101,6 +92,15 @@ When you run `pip install -e .`, the setuptools backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
 environment. It will create a new directory `src/python_project.egg-info/`
 that contains metadata for your project and should be `.gitignore`'d.
+
+Note that there are other ways to package Python projects, such as Flit or Hatch,
+but the simplest and oldest way is using pip + setuptools. At the time of writing,
+conda does not yet support installing in editable mode but you can still
+install a repo into a conda environment using pip.
+
+:warning: Note that using `pyproject.toml` instead of `setup.py` and `setup.cfg`
+is a recent change as of summer 2022, so there is a lot of outdated information
+out there.
 
 :rotating_light: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
 ensure that `pip>=21.3`. Failing that: `setuptools>=64.0`.
