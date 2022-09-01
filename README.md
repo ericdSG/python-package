@@ -120,6 +120,6 @@ to use another service like DVC or git-lfs.
 - The principle holds for other kinds of content, such as experiment runs.
 - To help users get off the ground quickly, add a (concise!) section in your
 README with copy/paste steps for:
-  1. Installation - submodule initialization, conda environment setup, pip
+  - Installation - submodule initialization, conda environment setup, pip
 package install
-  2. Basic usage - a minimal working example of how to get your code running
+  - Basic usage - a minimal working example of how to get your code running
