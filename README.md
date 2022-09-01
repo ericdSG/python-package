@@ -78,11 +78,10 @@ re-open the interpreter, and import the function again to see your change!
 ## How packaging works
 
 Installing a package with setuptools requires:
-- `pyproject.toml`: Recently adopted configration file standard ([PEP 621](https://peps.python.org/pep-0621/),
+- `pyproject.toml`: recently-adopted configration file standard ([PEP 621](https://peps.python.org/pep-0621/),
 [doc](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/))
   - Must contain, at minimum: `build-backend`, `requires`, `name`, `version`
-- `src/your_project_name/`: directory containing all of your project's source
-code
+- `src/your_project_name/`: directory containing all of your project's source code
 
 That's it! You want the top-level of the repo to be clean and free of clutter,
 with only the necessary configuration files (for example, GitHub workflows,
@@ -121,6 +120,6 @@ to use another service like DVC or git-lfs.
 - The principle holds for other kinds of content, such as experiment runs.
 - To help users get off the ground quickly, add a (concise!) section in your
 README with copy/paste steps for:
-  - Installation - submodule initialization, conda environment setup, pip
+  - Installation: submodule initialization, conda environment setup, pip
 package install
-  - Basic usage - a minimal working example of how to get your code running
+  - Basic usage: a minimal working example of how to get your code running
