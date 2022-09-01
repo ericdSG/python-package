@@ -99,10 +99,10 @@ pre-commit hooks, etc).
 
 When you run `pip install -e .`, the setuptools backend will collect the
 project metadata from `pyproject.toml` and add the contents of `src/` to your
-environemnt. It will create a new directory `src/python_project.egg-info/`
-that contains the binaries for your project and should be `.gitignore`'d.
+environment. It will create a new directory `src/python_project.egg-info/`
+that contains metadata for your project and should be `.gitignore`'d.
 
-:warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
+:rotating-light: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
 ensure that `pip>=21.3`. Failing that: `setuptools>=64.0`.
 
 ## Other recommendations
