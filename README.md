@@ -78,10 +78,8 @@ re-open the interpreter, and import the function again to see your change!
 ## How packaging works
 
 Installing a package with setuptools requires:
-- `pyproject.toml`: Recently adopted configration file standard (
-[PEP 621](https://peps.python.org/pep-0621/),
-[doc](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/)
-)
+- `pyproject.toml`: Recently adopted configration file standard ([PEP 621](https://peps.python.org/pep-0621/),
+[doc](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/))
   - Must contain, at minimum: `build-backend`, `requires`, `name`, `version`
 - `src/your_project_name/`: directory containing all of your project's source
 code
