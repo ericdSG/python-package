@@ -101,8 +101,8 @@ install a repo into a conda environment using pip.
 is a recent change as of summer 2022, so there is a lot of outdated information
 out there.
 
-:rotating_light: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
-ensure that `pip>=21.3`. Failing that: `setuptools>=64.0`.
+:rotating_light: Tested with `pip=22.2.2` and `setuptools=65.3.0`. If you have issues,
+ensure that `pip>=21.3` and `setuptools>=64.0`.
 
 ## Other recommendations
 
