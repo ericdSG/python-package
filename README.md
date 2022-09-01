@@ -57,7 +57,7 @@ interactive Python interpreter:
 
 ```
 (package-demo) python-package $ python
-Python 3.9.10 | packaged by conda-forge | (main, Feb  1 2022, 21:28:27)
+Python 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 05:57:50)
 [Clang 11.1.0 ] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
@@ -68,14 +68,17 @@ Import the test method we defined and try it out!
 ```
 >>> from python_package.test_module import test_add_one
 >>> test_add_one(2)
-3
+1
 ```
 
-Even though we opened the interactive interpreter from within the repo,
-we can import this method in the same way regardless of where the code
-is executed from!
+Oh, no! There is a bug. :bug: Exit the interactive interpreter, fix the bug,
+re-open the interpreter, and import the function again to see your change!
 
 ## How packaging works
+
+:warning: Note that using `pyproject.toml` instead of `setup.py` and `setup.cfg`
+is a recent change as of summer 2022, so there is a lot of outdated information
+out there.
 
 There are many ways to package Python projects, such as Flit or Hatch, but the
 simplest and oldest way is using pip + setuptools. At the time of writing,
@@ -98,27 +101,25 @@ project metadata from `pyproject.toml` and add the contents of `src/` to your
 environemnt. It will create a new directory `src/python_project.egg-info/`
 that contains the binaries for your project and should be `.gitignore`'d.
 
-:warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. Note that using
-`pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent change as of
-summer 2022, so there is a lot of outdated information out there.
+:warning: Tested with `pip=22.2.2` and `setuptools=59.8.0`. If you have issues,
+ensure that `pip>=21.3`. Failing that: `setuptools>=64.0`.
 
-## Other data
+## Other recommendations
 
-This repo only contains the necessary directories to create a valid Python
-package from source code. You will certainly want to create other directories.
-There are a few considerations to keep in mind:
+This repo describes the necessary files and directory structure to create a valid
+Python package, but you will certainly want to create other directories to
+organize your code. There are a few considerations to keep in mind:
 
-- Source code should always go in `src/`
+- Python source code should always go in `src/`. Anything outside this directory
+will not be packaged by setuptools.
 - In general, it is bad practice to commit data directly to git. It is better
 to use another service like DVC or git-lfs.
-
-## Recommendations
-
-- Have a _**concise**_ section in your README with copy/paste steps for:
+  - Consider having a single top-level `data/` directory that contains only and
+  all the input/output data for your project (i.e. no processing scripts). Don't
+  forget to add `data/` to `.gitignore`!
+- The principle holds for other kinds of content, such as experiment runs.
+- To help users get off the ground quickly, add a (concise!) section in your
+README with copy/paste steps for:
   1. Installation - submodule initialization, conda environment setup, pip
 package install
   2. Basic usage - a minimal working example of how to get your code running
-- Have a single top-level `data/` directory that contains only and all the
-input/output data for your project (i.e. no processing scripts). Don't forget
-to add `data/` to `.gitignore`!
-- The principle holds for other kinds of content, such as experiment runs.
