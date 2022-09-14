@@ -22,4 +22,7 @@ which is used by the Python interpreter to index other modules (files) in the
 package.
 
 You may have noticed that `MLtools` has `__init__.py` in the top-level. This is
-because it was intended to be an importable library in this way!
+because it was intended to be an importable library in this way. However
+`MLtools` should be updated to be a "proper" Python package, which means
+`__init__.py` will be removed and it will need to be installed separately with
+`pip install -e ./src/MLtools/`.
