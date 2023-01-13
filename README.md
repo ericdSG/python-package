@@ -9,9 +9,6 @@ Basic directory structure required to package your Python project.
 
 ## :gear: Installation
 
-:rocket: **TIP**: Use [`mamba`](https://github.com/mamba-org/mamba) instead
-of `conda` to significantly increase installation speed.
-
 Clone the repo, navigate to the top-level directory, and:
 
 1. Initialize submodules
@@ -27,8 +24,8 @@ Clone the repo, navigate to the top-level directory, and:
     mamba env create && mamba activate package-demo
     ```
 
-1. Install this repo as a package in editable mode (`-e`) into your mamba/conda
-environment using pip.
+1. Install this repo as a package in editable mode into your conda environment
+using pip
 
     ```bash
     pip install -e .
@@ -36,14 +33,14 @@ environment using pip.
 
     > **Note**
     > 
-    > Editable mode means that any local changes take effect immediately. The
-    > trailing `.` will install the current directory, so make sure you are in
-    > the repo top-level directory.
+    > Editable mode (`-e`) means that any local changes take effect immediately.
+    > The trailing `.` will install the current directory, so make sure you are
+    > in the repo top-level directory.
 
 ## :rocket: Testing your installation works
 
 Ensure the conda environment `package-demo` is activated, open the interactive
-Python interpreter, import the test method and try it out!
+Python interpreter, import the test method, and try it out!
 
 ```bash
 (package-demo) python-package $ python
@@ -64,7 +61,7 @@ fix the bug, and repeat the steps above to see your change!
 Installing a package with setuptools requires:
 - `pyproject.toml`: recently-adopted configration file standard ([PEP 621](https://peps.python.org/pep-0621/),
 [doc](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/))
-  - Must contain, at minimum: `name`, `version`
+  - Must contain, at minimum: name, version
 - `src/your_project_name/`: directory containing all of your project's source code
 
 That's it! You want the top-level of the repo to be clean and free of clutter,
