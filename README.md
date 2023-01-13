@@ -1,81 +1,65 @@
-# Python Package :package:
+# :package: Python Package
 
 Basic directory structure required to package your Python project.
 
-## Motivation
+## :thought_balloon: Motivation
 
 - Standarize Python code
 - Flexible module imports
 
-## Installation
+## :gear: Installation
 
-:rocket: **TIP**: Use [mamba](https://github.com/mamba-org/mamba) instead
-of conda to significantly increase installation speed. If you don't already
-have it installed: `conda install mamba -n base -c conda-forge`. Alternatively,
-replace all `mamba` commands with `conda`.
+:rocket: **TIP**: Use [`mamba`](https://github.com/mamba-org/mamba) instead
+of `conda` to significantly increase installation speed.
 
-Clone the repo:
+Clone the repo, navigate to the top-level directory, and:
 
-```
-git clone git@github.com:ericdSG/python-package.git
-cd python-package/
-```
+1. Initialize submodules
 
-Initialize submodules:
+    ```bash
+    git submodule update --init --recursive
+    ```
 
-```
-git submodule update --init --recursive
-```
+1. Create a new conda environment `package-demo` with dependencies from
+`environment.yml`
 
-Create a conda environment from the env file. The env name and
-Python version are already defined in the file.
+    ```bash
+    mamba env create && mamba activate package-demo
+    ```
 
-```
-mamba env create --file environment.yaml
-mamba activate package-demo
-```
+1. Install this repo as a package in editable mode (`-e`) into your mamba/conda
+environment using pip.
 
-Optional: install any other dependencies you might need. Let's assume
-you will be using the AudioLoader:
+    ```bash
+    pip install -e .
+    ```
 
-```
-mamba env update --file src/MLtools/AudioLoader/environment.yml
-```
+    > **Note**
+    > 
+    > Editable mode means that any local changes take effect immediately. The
+    > trailing `.` will install the current directory, so make sure you are in
+    > the repo top-level directory.
 
-Install this repo as a package in editable mode (`-e`) into the conda 
-environment using pip. Editable mode means that any local changes take effect
-immediately. The trailing `.` will install the current directory, so make sure
-you are in the repo top-level directory.
+## :rocket: Testing your installation works
 
-```
-pip install -e .
-```
+Ensure the conda environment `package-demo` is activated, open the interactive
+Python interpreter, import the test method and try it out!
 
-## Testing your installation works
-
-Ensure the conda environment (`package-demo`) is activated and open the
-interactive Python interpreter:
-
-```
+```bash
 (package-demo) python-package $ python
-Python 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 05:57:50)
-[Clang 11.1.0 ] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>> 
-```
-
-Import the test method we defined and try it out!
-
-```
 >>> from python_package.test_module import test_add_one
 >>> test_add_one(2)
 1
 ```
 
-Oh, no! There is a bug. :bug: Exit the interactive interpreter, fix the bug,
-re-open the interpreter, and import the function again to see your change!
+Oh, no! There is a bug. :bug: Exit the interactive interpreter (`CTRL` + `D`),
+fix the bug, and repeat the steps above to see your change!
 
-## How packaging works
+## :children_crossing: How packaging works
+
+> **Note**
+> 
+> Based on `pip>=21.3` and `setuptools>=64.0`
 
 Installing a package with setuptools requires:
 - `pyproject.toml`: recently-adopted configration file standard ([PEP 621](https://peps.python.org/pep-0621/),
@@ -92,28 +76,29 @@ project metadata from `pyproject.toml` and add the contents of `src/` to your
 environment. It will create a new directory `src/python_project.egg-info/`
 that contains metadata for your project and should be `.gitignore`'d.
 
-Note that there are other ways to package Python projects, such as Flit or Hatch,
-but the simplest and oldest way is using pip + setuptools. At the time of writing,
-conda does not yet support installing in editable mode but you can still
-install a repo into a conda environment using pip.
+Note that there are other ways to package Python projects, such as Flit, Hatch,
+or Poetry, but the simplest and traditional way is using pip + setuptools. At
+the time of writing, conda does not yet support installing in editable mode but
+you can still install a repo into a conda environment using pip as described
+above.
 
-:warning: Note that using `pyproject.toml` instead of `setup.py` and `setup.cfg`
-is a recent change as of summer 2022, so there is a lot of outdated information
-out there.
+> **Warning**
+> 
+> Using `pyproject.toml` instead of `setup.py` and `setup.cfg` is a recent
+> change as of summer 2022, so any information prior to this related to
+> packaging is likely outdated.
 
-:rotating_light: Tested with `pip=22.2.2` and `setuptools=65.3.0`. If you have issues,
-ensure that `pip>=21.3` and `setuptools>=64.0`.
-
-## Other recommendations
+## :bulb: Other recommendations
 
 This repo describes the necessary files and directory structure to create a valid
 Python package, but you will certainly want to create other directories to
 organize your code. There are a few considerations to keep in mind:
 
-- Python source code should always go in `src/`. Anything outside this directory
-will not be packaged by setuptools.
-- In general, it is bad practice to commit data directly to git. It is better
-to use another service like DVC or git-lfs.
+- Python source code (modules that you want to import into any executable
+script/applications) should go in `src/`. Anything outside this directory will
+not be packaged by setuptools.
+- It is bad practice to commit data directly to git. It is better to use
+another service like DVC or git-lfs.
   - Consider having a single top-level `data/` directory that contains only and
   all the input/output data for your project (i.e. no processing scripts). Don't
   forget to add `data/` to `.gitignore`!
