@@ -2,12 +2,12 @@
 
 Basic directory structure required to package your Python project.
 
-## :thought_balloon: Motivation
+# :thought_balloon: Motivation
 
 - Standarize Python code
 - Flexible module imports
 
-## :gear: Installation
+# :gear: Installation
 
 Clone the repo, navigate to the top-level directory, and:
 
@@ -37,7 +37,7 @@ using pip
     > The trailing `.` will install the current directory, so make sure you are
     > in the repo top-level directory.
 
-## :rocket: Testing your installation works
+# :rocket: Testing your installation works
 
 Ensure the conda environment `package-demo` is activated, open the interactive
 Python interpreter, import the test method, and try it out!
@@ -52,7 +52,7 @@ Python interpreter, import the test method, and try it out!
 Oh, no! There is a bug. :bug: Exit the interactive interpreter (`CTRL` + `D`),
 fix the bug, and repeat the steps above to see your change!
 
-## :children_crossing: How packaging works
+# :children_crossing: How packaging works
 
 > **Note**
 > 
@@ -85,7 +85,7 @@ above.
 > change as of summer 2022, so any information prior to this related to
 > packaging is likely outdated.
 
-## :bulb: Other recommendations
+# :bulb: Other recommendations
 
 This repo describes the necessary files and directory structure to create a valid
 Python package, but you will certainly want to create other directories to
