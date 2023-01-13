@@ -2,11 +2,6 @@
 
 Basic directory structure required to package your Python project.
 
-# :thought_balloon: Motivation
-
-- Standarize Python code
-- Flexible module imports
-
 # :gear: Installation
 
 Clone the repo, navigate to the top-level directory, and:
