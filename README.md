@@ -44,7 +44,7 @@ Python interpreter, import the test method, and try it out!
 1
 ```
 
-Oh, no! There is a bug. :bug: Exit the interactive interpreter (<kbd>CTRL</kbd> + <kbd>D</kbd>),
+Oh, no! There is a bug. :bug: Exit the interactive interpreter <kbd>CTRL</kbd> + <kbd>D</kbd>,
 fix the bug, and repeat the steps above to see your change!
 
 # :children_crossing: How packaging works
