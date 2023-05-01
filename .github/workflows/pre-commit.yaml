@@ -30,6 +30,7 @@ jobs:
           fetch-depth: 0 # checkout full tree
           lfs: true
           submodules: recursive
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v3
