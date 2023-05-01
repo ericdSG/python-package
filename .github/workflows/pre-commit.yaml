@@ -1,0 +1,57 @@
+name: Lint
+run-name: Lint
+
+on:
+
+  pull_request:
+    branches:
+      - master # PR from any branch into master
+
+  push:
+    branches:
+      - master # any activity on master (push, merge)
+
+env:
+  FORCE_COLOR: "1"
+
+concurrency:
+  # cancels active workflow if a new one is created
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pre-commit:
+    name: ubuntu-20.04
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout the repository on the runner
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # checkout full tree
+          lfs: true
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Run pre-commit (push)
+        if: github.event_name == 'push'
+        uses: pre-commit/action@v3.0.0
+        with:
+          extra_args: >
+            --from-ref ${{ github.event.before }}
+            --to-ref ${{ github.event.after }}
+      - name: Run pre-commit (pull_request)
+        if: github.event_name == 'pull_request'
+        uses: pre-commit/action@v3.0.0
+        with:
+          extra_args: >
+            --from-ref ${{ github.event.pull_request.base.sha }}
+            --to-ref ${{ github.event.pull_request.head.sha }}
